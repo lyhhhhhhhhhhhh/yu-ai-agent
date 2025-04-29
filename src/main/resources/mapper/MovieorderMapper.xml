@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyh.yuaiagent.mapper.MovieorderMapper">
+
+    <resultMap id="BaseResultMap" type="com.lyh.yuaiagent.entity.Movieorder">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userid" column="userId" jdbcType="BIGINT"/>
+            <result property="movieid" column="movieId" jdbcType="BIGINT"/>
+            <result property="moviename" column="movieName" jdbcType="VARCHAR"/>
+            <result property="cinemaid" column="cinemaId" jdbcType="BIGINT"/>
+            <result property="cinemaname" column="cinemaName" jdbcType="VARCHAR"/>
+            <result property="cinemahallname" column="cinemaHallName" jdbcType="VARCHAR"/>
+            <result property="moviesessionid" column="movieSessionId" jdbcType="BIGINT"/>
+            <result property="movieshowtime" column="movieShowTime" jdbcType="TIMESTAMP"/>
+            <result property="seatinfo" column="seatInfo" jdbcType="OTHER"/>
+            <result property="totalprice" column="totalPrice" jdbcType="DECIMAL"/>
+            <result property="ispayfor" column="isPayFor" jdbcType="TINYINT"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isdeleted" column="isDeleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,movieId,
+        movieName,cinemaId,cinemaName,
+        cinemaHallName,movieSessionId,movieShowTime,
+        seatInfo,totalPrice,isPayFor,
+        createTime,updateTime,isDeleted
+    </sql>
+</mapper>
