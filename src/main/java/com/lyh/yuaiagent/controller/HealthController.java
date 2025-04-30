@@ -1,17 +1,21 @@
 package com.lyh.yuaiagent.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lyh.yuaiagent.app.LoveApp;
 import com.lyh.yuaiagent.app.MovieApp;
 import com.lyh.yuaiagent.common.BaseResponse;
 import com.lyh.yuaiagent.common.ResultUtils;
+import com.lyh.yuaiagent.entity.GetRecommendMovieDto;
 import com.lyh.yuaiagent.entity.Movie;
+import com.lyh.yuaiagent.entity.MovieVO;
 import com.lyh.yuaiagent.entity.Movieorder;
 import com.lyh.yuaiagent.service.MovieService;
 import com.lyh.yuaiagent.service.MovieorderService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,6 +59,12 @@ public class HealthController {
         List<Movieorder> movieorderList = movieorderService.list(queryWrapper);
         MovieApp.MovieList movies = movieApp.recommendMovies(chatId, movieList, movieorderList);
         return ResultUtils.success(movies);
+    }
+
+    @PostMapping("getRecommendMovieList")
+    public BaseResponse<List<Movie>> getRecommendMovieList(@RequestBody GetRecommendMovieDto getRecommendMovieDto) {
+        List<Movie> recommendMovieList = movieService.getRecommendMovieList(getRecommendMovieDto.getUserId());
+        return ResultUtils.success(recommendMovieList);
     }
 
 }

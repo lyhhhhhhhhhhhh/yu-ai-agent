@@ -82,6 +82,12 @@ public class Movie implements Serializable {
      */
     private String moviesynopsis;
 
+    /**
+     * 推荐理由
+     */
+    @TableField(exist = false)
+    private String recommendReason;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

@@ -3,6 +3,8 @@ package com.lyh.yuaiagent.service;
 import com.lyh.yuaiagent.entity.Movie;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author liyuhang
 * @description 针对表【movie(电影)】的数据库操作Service
@@ -10,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface MovieService extends IService<Movie> {
 
+    List<Movie> getRecommendMovieList(String userId);
 }

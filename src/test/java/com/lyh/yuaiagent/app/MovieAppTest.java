@@ -43,4 +43,15 @@ class MovieAppTest {
         System.out.println(recommendedMovies);
     }
 
+    @Test
+    void recommendMoviesWithRag() {
+        String chatId = UUID.randomUUID().toString();
+        String userId = "1";
+        //获取当前用户订单
+        QueryWrapper<Movieorder> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("userId",userId);
+        List<Movieorder> movieorderList = movieorderService.list(queryWrapper);
+        MovieApp.MovieList recommendedMovies = movieApp.recommendMoviesWithRag(chatId, movieorderList);
+        System.out.println(recommendedMovies);
+    }
 }
